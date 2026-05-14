@@ -1279,13 +1279,13 @@ dokick(void)
         legs_in_no_shape("kicking", FALSE);
         no_kick = TRUE;
     } else if (near_capacity() > SLT_ENCUMBER) {
-        Your("承载太重，无法平衡来踢。");
+        Your("承载太重，无法保持平衡来踢。");
         no_kick = TRUE;
     } else if (gy.youmonst.data->mlet == S_LIZARD) {
         Your("腿不能有效地踢。");
         no_kick = TRUE;
     } else if (u.uinwater && !rn2(2)) {
-        Your("慢动作踢打不了任何东西。");
+        Your("你在水中动作迟缓，这一踢什么也没打到。");
         no_kick = TRUE;
     } else if (u.utrap) {
         no_kick = TRUE;
@@ -1608,7 +1608,7 @@ impact_drop(
 
     if (costly && shkp && price) {
         if (ESHK(shkp)->robbed > robbed) {
-            You("除去了价值 %ld %s 的物品！", price, currency(price));
+            You("失去了价值 %ld %s 的物品！", price, currency(price));
             if (cansee(shkp->mx, shkp->my)) {
                 if (ESHK(shkp)->customer[0] == 0)
                     (void) strncpy(ESHK(shkp)->customer, svp.plname, PL_NSIZ);
@@ -1624,7 +1624,7 @@ impact_drop(
         }
         if (ESHK(shkp)->debit > debit) {
             long amt = (ESHK(shkp)->debit - debit);
-            You("欠%s %ld %s 的物品损失。", shkname(shkp), amt,
+            You("欠%s %ld %s 的物品损失费。", shkname(shkp), amt,
                 currency(amt));
         }
     }
