@@ -159,7 +159,7 @@ make_familiar(struct obj *otmp, coordxy x, coordxy y, boolean quietly)
             if (!mtmp) {
                 /* monster has been genocided or target spot is occupied */
                 if (!quietly)
-                    pline_The("小雕像扭曲然后碎裂了！");
+                    pline_The("小雕像扭曲，然后碎裂了！");
                 break;
             } else if (mtmp->isminion) {
                 /* Fixup for figurine of an Angel:  makemon() is willing to
